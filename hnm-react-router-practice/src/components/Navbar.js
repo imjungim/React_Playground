@@ -15,7 +15,7 @@ const Navbar = () => {
   ]
 
   return (
-    <div>
+    <div className='Navbar'>
       <div>
         <div className="login-button">
           <FontAwesomeIcon icon={faUser} />
