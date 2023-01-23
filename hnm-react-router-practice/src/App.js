@@ -1,10 +1,11 @@
-import './App.css';
-import { Routes, Route } from 'react-router-dom';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import ProductAll from './pages/ProductAll';
-import Login from './pages/Login';
-import ProductDetail from './pages/ProductDetail';
-import Navbar from './components/Navbar';
+import './App.css'
+import { useEffect, useState } from 'react'
+import { Routes, Route } from 'react-router-dom'
+import 'bootstrap/dist/css/bootstrap.min.css'
+import ProductAll from './pages/ProductAll'
+import Login from './pages/Login'
+import ProductDetail from './pages/ProductDetail'
+import Navbar from './components/Navbar'
 
 //1.전체상품페이지, 로그인, 상품상세페이지
 //2. 전체 상품페이지에서는 전체 상품을 볼 수 있다.
@@ -16,16 +17,23 @@ import Navbar from './components/Navbar';
 //8. 로그인을 하면 로그아웃이 보이고, 로그아웃을 하면 로그인이 보인다.
 //9. 상품을 검색할 수 있다.
 function App() {
+  const [authenticate, setAuthenticate] = useState(false) //true -> 로그인됨, false -> 로그인 안됨
+  useEffect(() => {
+    console.log('aa', authenticate)
+  }, [authenticate]) //바뀐 authenticate확인
   return (
     <div>
-      <Navbar/>
+      <Navbar />
       <Routes>
         <Route path="/" element={<ProductAll />} />
-        <Route path="/login" element={<Login />} />
+        <Route
+          path="/login"
+          element={<Login setAuthenticate={setAuthenticate} />}
+        />
         <Route path="/product/:id" element={<ProductDetail />} />
       </Routes>
     </div>
   )
 }
 
-export default App;
+export default App
