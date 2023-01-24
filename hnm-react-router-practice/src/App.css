@@ -12,7 +12,6 @@
 .nav-section {
   display: flex;
   justify-content: center;
-
 }
 
 .menu-list {
@@ -48,15 +47,16 @@
 .product-card-img {
   width: 100%;
   height: auto;
-  transition: scale 200ms ease-in-out;
-}
-
-.product-card-img:hover {
-  scale: 1.1;
 }
 
 .product-card {
+  margin-bottom: 30px;
   cursor: pointer;
+  transition: scale 200ms ease-in-out;
+}
+
+.product-card:hover {
+  scale: 1.1;
 }
 
 /* Login */
@@ -69,4 +69,16 @@
 
 .Login Form {
   width: 60%;
+}
+
+/* ProductDetail */
+
+.product-img {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.detail-btn {
+  margin-top: 20px;
+  width: 100%;
 }
