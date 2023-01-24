@@ -18,6 +18,7 @@
 .menu-list {
   display: flex;
   list-style-type: none;
+  padding-left: 0;
 }
 
 .menu-list li {
@@ -52,4 +53,20 @@
 
 .product-card-img:hover {
   scale: 1.1;
+}
+
+.product-card {
+  cursor: pointer;
+}
+
+/* Login */
+
+.Login {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.Login Form {
+  width: 60%;
 }
