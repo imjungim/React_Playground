@@ -6,6 +6,7 @@ import ProductAll from './pages/ProductAll'
 import Login from './pages/Login'
 import ProductDetail from './pages/ProductDetail'
 import Navbar from './components/Navbar'
+import PrivateRoute from './route/PrivateRoute';
 
 //1.전체상품페이지, 로그인, 상품상세페이지
 //2. 전체 상품페이지에서는 전체 상품을 볼 수 있다.
@@ -30,7 +31,10 @@ function App() {
           path="/login"
           element={<Login setAuthenticate={setAuthenticate} />}
         />
-        <Route path="/product/:id" element={<ProductDetail />} />
+        <Route
+          path="/product/:id"
+          element={<PrivateRoute authenticate={authenticate} />}
+        />
       </Routes>
     </div>
   )
