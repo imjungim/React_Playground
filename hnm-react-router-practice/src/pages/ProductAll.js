@@ -4,18 +4,19 @@ import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import ProductCard from '../components/ProductCard';
 import { useSearchParams } from 'react-router-dom';
+import { productAction } from './../redux/actions/productAction';
+import { useDispatch, useSelector } from 'react-redux';
 
 const ProductAll = () => {
-  const [productList, setProductList] = useState([])
+  const productList = useSelector(state=>state.productList)
   const [query, setQuery] = useSearchParams();
+  const dispatch = useDispatch();
 
-  const getProducts = async () => {
+  const getProducts = () => {
     let searchQuery = query.get("q") || "";
-    console.log("query?", searchQuery)
-    let url = `https://my-json-server.typicode.com/imjungim/react/tree/main/hnm-react-router-practice/products?q=${searchQuery}`
-    let response = await fetch(url)
-    let data = await response.json()
-    setProductList(data)
+   // console.log("query?", searchQuery)
+    //미들웨어를 불러줘야한다.
+    dispatch(productAction.getProducts(searchQuery))//store로 이동이아닌 getProduct(미들웨어)를 거쳐서
   }
 
   useEffect(() => {
