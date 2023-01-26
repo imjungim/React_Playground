@@ -20,7 +20,7 @@ const Navbar = () => {
   const navigate = useNavigate()
   const dispatch = useDispatch()
   const authenticate = useSelector((state) => state.auth.authenticate)
-  console.log('navbar auth', authenticate)
+
   const search = (e) => {
     if (e.key === 'Enter') {
       //입력한 검색어를 읽어와서 url변경
