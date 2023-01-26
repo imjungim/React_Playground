@@ -5,4 +5,10 @@ function login(id, password) {
   }
 }
 
-export const authenticateAction = { login }
+function logOut() {
+  return (dispatch, getState) => {
+    dispatch({type:"LOGOUT_SUCCESS"})
+  }
+}
+
+export const authenticateAction = { login , logOut}
