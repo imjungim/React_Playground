@@ -8,7 +8,7 @@ import { productAction } from './../redux/actions/productAction';
 import { useDispatch, useSelector } from 'react-redux';
 
 const ProductAll = () => {
-  const productList = useSelector(state=>state.productList)
+  const productList = useSelector(state=>state.product.productList)//combineReducer객체 안에 있는 값을 구별해서 사용해야함.!
   const [query, setQuery] = useSearchParams();
   const dispatch = useDispatch();
 
@@ -16,7 +16,7 @@ const ProductAll = () => {
     let searchQuery = query.get("q") || "";
    // console.log("query?", searchQuery)
     //미들웨어를 불러줘야한다.
-    dispatch(productAction.getProducts(searchQuery))//store로 이동이아닌 getProduct(미들웨어)를 거쳐서
+    dispatch(productAction.getProducts(searchQuery))//store로 이동이 아닌 getProduct(미들웨어)로 searchQuery를 담아서 이동
   }
 
   useEffect(() => {
