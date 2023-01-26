@@ -2,8 +2,11 @@ import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSearch, faUser } from '@fortawesome/free-solid-svg-icons'
 import { useNavigate } from 'react-router-dom'
+import { authenticateAction } from '../redux/actions/authenticateAction'
+import { useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux'
 
-const Navbar = ({ authenticate, setAuthenticate }) => {
+const Navbar = () => {
   const menuList = [
     '여성',
     'Divided',
@@ -15,7 +18,9 @@ const Navbar = ({ authenticate, setAuthenticate }) => {
     '지속가능성',
   ]
   const navigate = useNavigate()
-
+  const dispatch = useDispatch()
+  const authenticate = useSelector((state) => state.auth.authenticate)
+  console.log('navbar auth', authenticate)
   const search = (e) => {
     if (e.key === 'Enter') {
       //입력한 검색어를 읽어와서 url변경
@@ -24,10 +29,14 @@ const Navbar = ({ authenticate, setAuthenticate }) => {
     }
   }
 
+  const authenticateLogout = () => {
+    dispatch(authenticateAction.logOut())
+  }
+
   return (
     <div className="Navbar">
       {authenticate ? (
-        <div className="login-button" onClick={() => setAuthenticate(false)}>
+        <div className="login-button" onClick={authenticateLogout}>
           <FontAwesomeIcon icon={faUser} className="login-icon" />
           <div>로그아웃</div>
         </div>
