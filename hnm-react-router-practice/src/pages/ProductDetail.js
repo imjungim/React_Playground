@@ -1,20 +1,22 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/esm/Row'
 import Col from 'react-bootstrap/esm/Col'
 import Dropdown from 'react-bootstrap/Dropdown'
 import Button from 'react-bootstrap/Button'
+import { useDispatch, useSelector } from 'react-redux'
+import { productDetailAction } from '../redux/actions/productDetailAction'
 
 const ProductDetail = () => {
   let { id } = useParams()
-  const [product, setProduct] = useState(null)
-  const getProductDetail = async () => {
-    let url = `http://localhost:5000/products/${id}`
-    let response = await fetch(url)
-    let data = await response.json()
-    setProduct(data)
+  const product = useSelector((state) => state.productDetail.product)
+
+  const dispatch = useDispatch()
+  const getProductDetail = () => {
+    dispatch(productDetailAction.getProductDetail(id))
   }
+
   useEffect(() => {
     getProductDetail()
   }, [])
