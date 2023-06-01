@@ -29,5 +29,6 @@ const productSlice = createSlice({
 
 console.log("productSlice", productSlice)
 
+export const productActions = productSlice.actions //dispatch하기위해 action export ->productAction.js
 export default productSlice.reducer //하나의 큰 리듀서 export
 
