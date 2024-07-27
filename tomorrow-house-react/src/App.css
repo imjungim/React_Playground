@@ -1,0 +1,59 @@
+* {
+  margin: 0;
+  font-family: $font-main;
+  -moz-osx-font-smoothing: grayscale; /* font를 좀 더 부드럽게 */
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 16px;
+}
+
+body {
+  font-family: 'Noto Sans KR', sans-serif;
+  color: #3F4150;
+}
+
+h1 {
+  margin: 0;
+}
+
+a {
+  color: inherit; /* a가 속해있는 요소의 컬러를 상속 */
+  text-decoration: none;
+}
+
+button,
+input,
+select,
+textarea {
+  background-color: transparent; /* 투명한 아무색없음 */
+  border: 0;
+
+  &:focus {
+    outline: none;
+    box-shadow: none;
+  } /* button, input select, textarea가 focus되었을 때*/
+}
+
+a,
+button {
+  cursor: pointer;
+}
+
+button {
+  padding: 0;
+}
+
+ul,
+ol {
+  padding-left: 0;
+  list-style: none;
+}
+
+
+address {
+  font-style: normal;
+}

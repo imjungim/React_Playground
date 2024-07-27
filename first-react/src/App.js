@@ -1,13 +1,15 @@
-import logo from './logo.svg';
-import './App.css';
-import Preview from './Components/Preview';
+import React, { useState, useEffect } from 'react';
+import AxiosPost from './Components/AxiosPost';
 
-function App() {
+
+const App = () => {
+
+
   return (
-    <div className="App">
-     <Preview/>
+    <div>
+      <AxiosPost/>
     </div>
   );
-}
+};
 
 export default App;
